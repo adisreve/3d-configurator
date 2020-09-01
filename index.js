@@ -39,24 +39,17 @@ app.post('/api/test/', (req, res) => {
   const creds = req.body.creds;
 
   const transporter = nodemailer.createTransport({
-   //  host: 'lorca.metanet.ch', 
-   //  port: 465,
-   //  secure: true,
-   // //  service: 'Gmail',
-   //  auth: {
-   //    user: 'outtec@swisswebprofi.ch',
-   //    pass: 'Owg86d8#'
-   //  }
-    host: 'smtp.sonneo.ch', 
+    host: 'smtp host', 
     port: 25,
     secure: false,
     tls: {
       rejectUnauthorized: false
     },
+   //  Uncomment the line below if you want to use GMail address instead
    //  service: 'Gmail',
     auth: {
-      user: 'info@sonneo.ch',
-      pass: 'Maninona270698'
+      user: 'email@email.com',
+      pass: 'password'
     }
   });
 
