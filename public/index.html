@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta name="viewport" content="width=device-width" />
+   <meta name="description" content="On-line 3D configurator" />
+   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+   <title>3D Pergola </title>
+   <style>
+      .loader {
+         position: fixed;
+         left: 0px;
+         top: 0px;
+         width: 100%;
+         height: 100%;
+         z-index: 9999;
+         opacity: 0.75;
+      }
+   </style>
+   <script type="text/javascript">
+      window.onload = function () {
+         var $ldr = document.querySelector(".loader");
+         if ($ldr) {
+            $ldr.classList.remove("loader");
+         }
+      };
+
+      var serverParameters = null;
+      var id = "2017-12-13-02a7ce83f03e4951b5a3e66f877afb47";
+      var screenshotUrl = "/r/brustor/brustor/de/designer/screenshot/2017-12-13-02a7ce83f03e4951b5a3e66f877afb47";
+      var contentRoute = "/assets/img/";
+      var postUrl = "/r/brustor/brustor/de/designer/share/2017-12-13-02a7ce83f03e4951b5a3e66f877afb47";
+      var postImageUrl = "/r/brustor/brustor/de/designer/image/2017-12-13-02a7ce83f03e4951b5a3e66f877afb47";
+      var newUrl = "index.html";
+      var language = "de";
+      var designType = "patioroof2";
+      var isLoggedIn = false;
+      var tenant = "brustor";
+   </script>
+   <link href="assets/css/bootstrap.css" rel="stylesheet" />
+   <link href="assets/css/style.css" rel="stylesheet" />
+   <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+   <style type="text/css">
+      #vsl-box {
+         background: #f0faff;
+         -moz-border-radius: 5px;
+         -webkit-border-radius: 5px;
+         border-radius: 5px;
+         padding: 0.5em;
+         opacity: 0.85;
+         position: absolute;
+         left: 1em;
+         bottom: 1em;
+         transition: 0.3s;
+         opacity: 0.25;
+         width: 5em;
+         text-align: center;
+         overflow: hidden;
+         height: 2em;
+         padding-top: 0.15em;
+      }
+
+      #vsl-box:hover {
+         opacity: 0.85;
+         width: 21em;
+      }
+
+      @media screen and (max-device-height: 800px) {
+         #vsl-box {
+            transform-origin: bottom left;
+            transform: scale(0.6);
+            left: 0.5em;
+            bottom: 0.5em;
+         }
+      }
+
+
+      #vr-qr-code {
+         position: fixed;
+         left: 50%;
+         top: 50%;
+         margin-left: -75px;
+         margin-top: -75px;
+         background-color: white;
+      }
+
+      #vr-qr-code label {
+         display: block;
+      }
+
+      .hidden {
+         display: none;
+      }
+   </style>
+</head>
+
+<body>
+
+   <div class="loader"></div>
+   <div id="sidebar-container" role="main">
+
+   </div>
+   <div id="float-gui"></div>
+
+   <script src="assets/js/pergola.js"></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+   <script src="assets/js/main.js"></script>
+   <script type="text/javascript">
+      var qrContainer = document.getElementById("vr-qr-code");
+      // var qrImg = qrContainer.getElementsByTagName("img")[0];
+      var qrLink = qrContainer.getElementsByTagName("a")[0];
+      var qrRange = qrContainer.getElementsByTagName("input")[0];
+
+      qrImg.onclick = function (e) {
+         qrContainer.classList.add("hidden");
+      }
+      document.body.addEventListener("keydown", function (e) {
+         if (e.key === "v" && e.altKey === true) {
+            qrContainer.classList.remove("hidden");
+         }
+      });
+
+      function updateUrls(e) {
+         var val = parseInt(e.target.value);
+         var hash = "#quality=";
+         var urlEncodedHash = encodeURIComponent(hash);
+         var hashes = [hash, urlEncodedHash];
+         [qrLink.attributes["href"], qrImg.attributes["src"]].map(function (attr, i) {
+            var hashcode = hashes[i];
+            attr.value = attr.value.split(hashcode)[0] + hashcode + val;
+         });
+      }
+
+      qrRange.addEventListener("change", updateUrls);
+
+      var qrMessage = document.getElementById("");
+   </script>
+
+   <script>
+      clear();
+   </script>
+
+</body>
+
+</html>
